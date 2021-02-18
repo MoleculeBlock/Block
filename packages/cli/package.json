@@ -1,0 +1,26 @@
+{
+    "name": "@atuo/cli",
+    "version": "0.0.1",
+    "description": "Command line interface core",
+    "author": "tarosun <sunxiaomingyes@gmail.com>",
+    "homepage": "https://github.com/MoleculeBlock/Block/tree/master/packages/cli#readme",
+    "license": "ISC",
+    "main": "lib/cli.js",
+    "directories": {
+        "lib": "lib",
+        "test": "__tests__"
+    },
+    "files": [
+        "lib"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MoleculeBlock/Block.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: run tests from root\" && exit 1"
+    },
+    "bugs": {
+        "url": "https://github.com/MoleculeBlock/Block/issues"
+    }
+}
