@@ -23,3 +23,8 @@
 ## 包软连接
 
 `lerna link`
+
+# 发布流程注意事项
+
+* 每次发布都需要登陆 npm login
+* 每个package.json 都需要添加 [publishConfig配置](https://github.com/lerna/lerna/tree/main/commands/publish#publishconfigaccess)
