@@ -1,5 +1,5 @@
 {
-    "name": "@atuo/cli",
+    "name": "atuo",
     "version": "1.0.0",
     "description": "Command line interface for atuo",
     "main": "index.js",
