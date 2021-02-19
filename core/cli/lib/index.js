@@ -12,6 +12,7 @@ function core() {
     try {
         checkPkgVersion()
         checkNodeVersion()
+        checkRoot()
     } catch (error) {
         log.error(error.message)
     }
@@ -31,4 +32,10 @@ function checkNodeVersion() {
     if (!semver.gte(currentVersion, LOWEST_NODE_VERSION)) {
         throw new Error(colors.red(`脚手架需要安装 V${LOWEST_NODE_VERSION} 以上版本的 Node.js`))
     }
+}
+
+// 检查root账户
+function checkRoot() {
+    const rootCheck = require('root-check')
+    rootCheck()
 }
