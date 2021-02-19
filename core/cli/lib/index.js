@@ -2,6 +2,8 @@
 
 const semver = require('semver')
 const colors = require('colors/safe')
+const userHome = require('user-home')
+const pathExists = require('path-exists').sync
 const log = require('@atuo/cli-log')
 const pkg = require('../package.json')
 const { LOWEST_NODE_VERSION } = require('./const')
@@ -13,6 +15,7 @@ function core() {
         checkPkgVersion()
         checkNodeVersion()
         checkRoot()
+        checkUserHome()
     } catch (error) {
         log.error(error.message)
     }
@@ -38,4 +41,12 @@ function checkNodeVersion() {
 function checkRoot() {
     const rootCheck = require('root-check')
     rootCheck()
+}
+
+// 检查用户主目录是否存在
+function checkUserHome() {
+    // 如果用户主目录不存在或者用户主目录文件是否存在
+    if (!userHome || !pathExists(userHome)) {
+        throw new Error(colors.red('当前登陆用户主目录不存在！'))
+    }
 }
