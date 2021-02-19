@@ -8,6 +8,7 @@ const log = require('@atuo/cli-log')
 const pkg = require('../package.json')
 const { LOWEST_NODE_VERSION } = require('./const')
 
+let args
 module.exports = core;
 
 function core() {
@@ -16,6 +17,7 @@ function core() {
         checkNodeVersion()
         checkRoot()
         checkUserHome()
+        checkInputArgs()
     } catch (error) {
         log.error(error.message)
     }
@@ -49,4 +51,21 @@ function checkUserHome() {
     if (!userHome || !pathExists(userHome)) {
         throw new Error(colors.red('当前登陆用户主目录不存在！'))
     }
+}
+
+// 判断参数是否开启debug模式
+function checkInputArgs() {
+    const minimist = require('minimist')
+    args = minimist(process.argv.slice(2))
+    checkArgs()
+}
+
+// 判断是否有debug参数
+function checkArgs() {
+    if (args.debug) {
+        process.env.LOG_LEVEL = 'verbose'
+    } else {
+        process.env.LOG_LEVEL = 'info'
+    }
+    log.level = process.env.LOG_LEVEL
 }
