@@ -5,7 +5,10 @@
     "author": "tarosun <sunxiaomingyes@gmail.com>",
     "homepage": "https://github.com/MoleculeBlock/Block/tree/master/packages/cli#readme",
     "license": "ISC",
-    "main": "lib/cli.js",
+    "bin": {
+        "atuo": "bin/index.js"
+    },
+    "main": "lib/index.js",
     "directories": {
         "lib": "lib",
         "test": "__tests__"
@@ -25,5 +28,10 @@
     },
     "bugs": {
         "url": "https://github.com/MoleculeBlock/Block/issues"
+    },
+    "dependencies": {
+        "@atuo/cli-utils": "file:../../utils/utils",
+        "import-local": "^3.0.2",
+        "npmlog": "^4.1.2"
     }
 }
