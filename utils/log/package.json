@@ -1,24 +1,21 @@
 {
-    "name": "@atuo/cli",
+    "name": "@atuo/cli-log",
     "version": "0.0.5",
-    "description": "Command line interface core",
+    "description": "log",
     "author": "tarosun <sunxiaomingyes@gmail.com>",
-    "homepage": "https://github.com/MoleculeBlock/Block/tree/master/packages/cli#readme",
+    "homepage": "https://github.com/MoleculeBlock/Block/tree/master/core/cli-log#readme",
     "license": "ISC",
-    "bin": {
-        "atuo": "bin/index.js"
-    },
     "main": "lib/index.js",
     "directories": {
         "lib": "lib",
         "test": "__tests__"
     },
-    "publishConfig": {
-        "access": "public"
-    },
     "files": [
         "lib"
     ],
+    "publishConfig": {
+        "access": "public"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/MoleculeBlock/Block.git"
@@ -30,8 +27,6 @@
         "url": "https://github.com/MoleculeBlock/Block/issues"
     },
     "dependencies": {
-        "@atuo/cli-log": "file:../../utils/log",
-        "import-local": "^3.0.2",
         "npmlog": "^4.1.2"
     }
 }
