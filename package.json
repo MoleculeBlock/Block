@@ -1,6 +1,6 @@
 {
     "name": "atuo",
-    "version": "0.0.2",
+    "version": "0.0.5",
     "description": "Command line interface for atuo",
     "main": "index.js",
     "scripts": {

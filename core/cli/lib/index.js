@@ -12,7 +12,7 @@ const { LOWEST_NODE_VERSION, DEFAULT_CLI_HOME } = require('./const')
 let args
 module.exports = core;
 
-function core() {
+async function core() {
     try {
         checkPkgVersion()
         checkNodeVersion()
@@ -20,6 +20,7 @@ function core() {
         checkUserHome()
         checkInputArgs()
         checkEnv()
+        await checkGlobalUpdate()
     } catch (error) {
         log.error(error.message)
     }
@@ -98,4 +99,20 @@ function createDefaultConfig() {
         cliConfig['cliHome'] = path.join(userHome, DEFAULT_CLI_HOME)
     }
     process.env.CLI_HOME_PATH = cliConfig.cliHome
+}
+
+// 检查是否是最新脚手架版本
+async function checkGlobalUpdate() {
+    // 获取当前版本号和模块名
+    const currentPkgVersion = pkg.version
+    const pkgName = pkg.name
+        // 调用npm API 获取所有版本号
+    const { getNpmSemverVersion } = require('@atuo/cli-get-npm-info')
+        // 比对当前版本号与npm 版本号
+    const lastVersion = await getNpmSemverVersion(currentPkgVersion, pkgName)
+        // 得出最新版本号给出提示
+    if (lastVersion && semver.gt(lastVersion, currentPkgVersion)) {
+        log.warn(colors.yellow(`请手动更新 ${pkgName}, 当前版本：${currentPkgVersion}, 最新版本：${lastVersion}
+          更新命令：npm install -g ${pkgName}`))
+    }
 }
