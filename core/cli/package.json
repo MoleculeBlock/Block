@@ -1,6 +1,6 @@
 {
     "name": "@atuo/cli",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Command line interface core",
     "author": "tarosun <sunxiaomingyes@gmail.com>",
     "homepage": "https://github.com/MoleculeBlock/Block/tree/master/packages/cli#readme",
@@ -30,8 +30,8 @@
         "url": "https://github.com/MoleculeBlock/Block/issues"
     },
     "dependencies": {
-        "@atuo/cli-log": "file:../../utils/log",
         "@atuo/cli-get-npm-info": "file:../../utils/get-npm-info",
+        "@atuo/cli-log": "file:../../utils/log",
         "colors": "^1.4.0",
         "dotenv": "^8.2.0",
         "import-local": "^3.0.2",
